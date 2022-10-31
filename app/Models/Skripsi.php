@@ -9,6 +9,15 @@ class Skripsi extends Model
 {
     use HasFactory;
 
+    protected $table = 'table_skripsi';
+    protected $fillable = [
+        "name",
+        "nim",
+        "bidang",
+        "tahun",
+        "koleksi",
+        "dosen_pembimbing"
 
-    
+    ];
+
 }

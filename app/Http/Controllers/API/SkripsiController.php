@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
+use App\Http\Controllers\Controller;
+use App\Models\Skripsi;
+use App\helpers\ApiFormatter;
 
 use Illuminate\Http\Request;
 
-class KPController extends Controller
+class SkripsiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +17,15 @@ class KPController extends Controller
     public function index()
     {
         //
+
+        $data = Skripsi::all();
+
+        if($data){
+            return ApiFormatter::createApi(200, 'Success', $data);
+
+        } else{
+            return ApiFormatter::createApi(400, 'Failled');
+        }
     }
 
     /**
